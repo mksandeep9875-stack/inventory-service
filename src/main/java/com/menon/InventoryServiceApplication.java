@@ -6,12 +6,8 @@ import org.springframework.boot.web.servlet.ServletComponentScan;
 
 @SpringBootApplication
 @ServletComponentScan
-public class InventoryServiceApplication
-{
-
-    public static void main(String[] args)
-    {
+public class InventoryServiceApplication {
+    public static void main(String[] args) {
         SpringApplication.run(InventoryServiceApplication.class, args);
     }
-
 }

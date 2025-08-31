@@ -10,10 +10,10 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import org.springframework.transaction.annotation.Transactional;
 
 @Service
-public class Consumer {
+public class ConsumerListener {
 
     private final ObjectMapper objectMapper = new ObjectMapper();
-    private static final Logger log = LoggerFactory.getLogger(Consumer.class);
+    private static final Logger log = LoggerFactory.getLogger(ConsumerListener.class);
 
     @Autowired
     InventoryRepository inventoryRepository;
@@ -54,7 +54,7 @@ public class Consumer {
 
                 log.info("Reserved stock of %s by %d → new reserved: %s%n",
                         productId, qty, inv.getTotalStockReserved());
-            }else{
+            } else {
                 log.warn("Inventory not found for productId: " + productId);
             }
         });
@@ -72,7 +72,7 @@ public class Consumer {
 
                 log.info("Reduced stock of %s by %d → new sold: %s%n",
                         productId, qty, inv.getTotalStockSold());
-            }else{
+            } else {
                 log.warn("Inventory not found for productId: " + productId);
             }
         });
@@ -88,7 +88,7 @@ public class Consumer {
 
                 log.info("Restored stock of %s by %d → new sold: %s%n",
                         productId, qty, inv.getTotalStockSold());
-            }else{
+            } else {
                 log.warn("Inventory not found for productId: " + productId);
             }
         });
